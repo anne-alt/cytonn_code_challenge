@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Search from "./search";
 import Table from "./table";
 
 function Home() {
@@ -22,6 +23,7 @@ function Home() {
 }, []);
 return (
     <div>
+        <Search/>
         <Table data={data}/>
     </div>
 )}

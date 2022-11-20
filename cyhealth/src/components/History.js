@@ -32,13 +32,14 @@ function History() {
         .catch(err => console.error(err));
 }, [])
 
-        const all= console.log(cases)
         const times = cases.map(item => (item.time)).reverse()
-        const news = cases.map(item => (item.cases.new))
-        const active = cases.map(item => (item.cases.active))
-        const critical = cases.map(item => (item.cases.critical))
-        const recovered = cases.map(item => (item.cases.recovered))
-        const total = cases.map(item => (item.cases.total))
+        const news = cases.map(item => (item.cases.new)).reverse()
+        const active = cases.map(item => (item.cases.active)).reverse()
+        const critical = cases.map(item => (item.cases.critical)).reverse()
+        const recovered = cases.map(item => (item.cases.recovered)).reverse()
+        const total = cases.map(item => (item.cases.total)).reverse()
+        const newdt = cases.map(item => (item.deaths.total)).reverse()
+        const newd = cases.map(item => (item.deaths.new)).reverse()
 
 
     const data = {
@@ -64,17 +65,27 @@ function History() {
             data: recovered,
             borderWidth: 1
          },
+        //  {
+        //     label: 'Total',
+        //     data: total,
+        //     borderWidth: 1
+        //  },
          {
-            label: 'Total',
-            data: total,
+            label: 'Newd',
+            data: newd,
+            borderWidth: 1
+         },
+         {
+            label: 'Newdt',
+            data: newdt,
             borderWidth: 1
          },
         ]
       }
 
-      const option = {
+const option = {
 
-        responsive: true,
+    responsive: true,
     interaction: {
       mode: 'index',
       intersect: false,
@@ -91,31 +102,7 @@ function History() {
             type: 'linear',
             display: true,
             position: 'left',
-            beginAtZero: true
           },
-          y1: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-          },
-          y2: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-            beginAtZero: true
-          },
-          y3: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-            beginAtZero: true
-          },
-          y4: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-            beginAtZero: true
-          }
         },
         legend: {
             fontSize: 26

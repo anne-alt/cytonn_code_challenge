@@ -9,9 +9,9 @@ import History from './components/History';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <Home/> */}
-    <History/>
+    {/* <History/> */}
   </React.StrictMode>
 );
 

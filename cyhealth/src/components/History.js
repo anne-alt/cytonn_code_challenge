@@ -48,42 +48,60 @@ function History() {
             {
               label: 'New',
               data: news,
-              borderWidth: 1
+              borderWidth: 2,
+              borderColor: '#30011E', 
+              lineTension: 0,
+              fill: false,
            },
            {
             label: 'Active',
             data: active,
-            borderWidth: 1
+            borderWidth: 2,
+            borderColor: '#B86026',
+            lineTension: 0,
+              fill: false,
+
          },
          {
             label: 'Critical',
             data: critical,
-            borderWidth: 1
+            borderWidth: 2,
+            borderColor: '#FCB07E',
+            lineTension: 0,
+              fill: false,
          },
          {
             label: 'Recovered',
             data: recovered,
-            borderWidth: 1
+            borderWidth: 2,
+            borderColor: '#A44200',
+            lineTension: 0,
+              fill: false,
          },
-        //  {
-        //     label: 'Total',
-        //     data: total,
-        //     borderWidth: 1
-        //  },
          {
-            label: 'Newd',
+            label: 'New Deaths',
             data: newd,
-            borderWidth: 1
+            borderWidth: 2,
+            borderColor: 'red',
+            lineTension: 0,
+              fill: false,
          },
          {
-            label: 'Newdt',
+            label: 'Total Deaths',
             data: newdt,
-            borderWidth: 1
+            borderWidth: 2,
+            borderColor: 'maroon',
+            lineTension: 0,
+              fill: false, 
          },
         ]
       }
 
 const option = {
+    title: {
+        display: true,
+        text: ' '
+    },
 
     responsive: true,
     interaction: {
@@ -105,7 +123,13 @@ const option = {
           },
         },
         legend: {
-            fontSize: 26
+            fontSize: 26,
+            display: false,
+            position: 'top',
+            labels: {
+                boxWidth: 80,
+                fontColor: 'black'
+              }
         }
       }
 
@@ -114,8 +138,16 @@ const option = {
             < Line
             data = {data}
             options = {option}
-            height={400}
+            height={150}
+            // width={2.0}
             />
+            <button style={{backgroundColor:'#30011E'}}>New</button>
+            <button style={{backgroundColor:'#B86026'}}>Active</button>
+            <button style={{backgroundColor:'#FCB07E'}}>Critical</button>
+            <button style={{backgroundColor:'#A44200'}}>Recovered</button>
+            <button style={{backgroundColor:'red'}}>New Deaths</button>
+            <button style={{backgroundColor:'maroon'}}>Total Deaths</button>
+
         </div>
     )
     

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import Search from "./search";
-import Table from "./table";
+import Search from "./Search";
+import Table from "./Table";
 
 function Home() {
     const [data, setData] = useState([]);

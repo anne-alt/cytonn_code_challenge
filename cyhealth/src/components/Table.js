@@ -7,7 +7,7 @@ function Table({data, search}) {
     const rows = Searcher.map((val,key) => {
         return (
             <tr key={key}>
-                <td>{val.day}</td>
+                {/* <td>{val.day}</td> */}
                 <td>{val.continent}</td>
                 <td>{val.country}</td>
                 <td>{val.population}</td>
@@ -28,12 +28,17 @@ function Table({data, search}) {
             <table>
                 <thead>
                 <tr>
-                    <th>Day</th>
+                    {/* <th>Day</th> */}
                     <th>Continent</th>
                     <th>Country</th>
                     <th>Population</th>
-                    <th>Cases</th>
-                    <th>Deaths</th>
+                    <th>New Cases</th>
+                    <th>Active Cases</th>
+                    <th>Recovered Cases</th>
+                    <th>Critical Cases</th>
+                    <th>total Cases</th>
+                    <th>New Deaths</th>
+                    <th>Total Deaths</th>
                     <th>Tests</th>
                 </tr>
                 </thead>

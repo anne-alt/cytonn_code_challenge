@@ -28,7 +28,6 @@ function Table({data, search}) {
             <table>
                 <thead>
                 <tr>
-                    {/* <th>Day</th> */}
                     <th>Continent</th>
                     <th>Country</th>
                     <th>Population</th>

@@ -139,7 +139,6 @@ const option = {
             data = {data}
             options = {option}
             height={150}
-            // width={2.0}
             />
             <button style={{backgroundColor:'#30011E'}}>New</button>
             <button style={{backgroundColor:'#B86026'}}>Active</button>

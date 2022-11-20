@@ -1,8 +1,10 @@
 import React from "react";
 
-function Table({data}) {
+function Table({data, search}) {
 
-    const rows = data.map((val,key) => {
+    const Searcher = data.filter(item => (item.country.toLowerCase().includes(search)))
+
+    const rows = Searcher.map((val,key) => {
         return (
             <tr key={key}>
                 <td>{val.day}</td>

@@ -4,6 +4,7 @@ import Table from "./table";
 
 function Home() {
     const [data, setData] = useState([]);
+    const [search, setSearch] = useState([])
 
 
     const options = {
@@ -18,13 +19,13 @@ function Home() {
     
     fetch('https://covid-193.p.rapidapi.com/statistics/', options)
         .then(response => response.json())
-        .then(data => console.log(data.response))
+        .then(data => setData(data.response))
         .catch(err => console.error(err));
 }, []);
 return (
     <div>
-        <Search/>
-        <Table data={data}/>
+        <Search search={search} setSearch={setSearch}/>
+        <Table data={data} search={search}/>
     </div>
 )}
 

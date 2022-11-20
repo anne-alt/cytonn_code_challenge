@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({data, search}) {
 
-    const Searcher = data.filter(item => (item.country.toLowerCase().includes(search)))
+    const Searcher = data.filter(item => (item.country.includes(search)))
 
     const rows = Searcher.map((val,key) => {
         return (

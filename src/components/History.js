@@ -118,7 +118,6 @@ const option = {
             < Line
             data = {data}
             options = {option}
-            // height={150}
             />
             <Cases cases={cases}/>
 

@@ -36,11 +36,14 @@ function History() {
         const times = cases.map(item => (item.time).slice(11)).reverse()
         const onlyTime = times.map(item => item.slice(0,5))
         const news = cases.map(item => (item.cases.new)).reverse()
-        const active = cases.map(item => (item.cases.active)).reverse()
         const critical = cases.map(item => (item.cases.critical)).reverse()
+        const active = cases.map(item => (item.cases.active)).reverse()
         const recovered = cases.map(item => (item.cases.recovered)).reverse()
         const total = cases.map(item => (item.cases.total)).reverse()
+        const sumCases = total.reduce((a,b) => a+b, 0)
+        console.log(sumCases)
         const newdt = cases.map(item => (item.deaths.total)).reverse()
+        const sumDeaths = newdt.reduce((a,b) => a+b, 0)
         const newd = cases.map(item => (item.deaths.new)).reverse()
 
 
@@ -55,15 +58,6 @@ function History() {
               lineTension: 0,
               fill: false,
            },
-        //    {
-        //     label: 'Active Cases',
-        //     data: active,
-        //     borderWidth: 2,
-        //     borderColor: '#B86026',
-        //     lineTension: 0,
-        //       fill: false,
-
-        //  },
          {
             label: 'Critical Cases',
             data: critical,
@@ -72,14 +66,6 @@ function History() {
             lineTension: 0,
               fill: false,
          },
-        //  {
-        //     label: 'Recovered Cases',
-        //     data: recovered,
-        //     borderWidth: 2,
-        //     borderColor: '#A44200',
-        //     lineTension: 0,
-        //       fill: false,
-        //  },
          {
             label: 'New Deaths',
             data: newd,
@@ -88,14 +74,6 @@ function History() {
             lineTension: 0,
               fill: false,
          },
-        //  {
-        //     label: 'Total Deaths',
-        //     data: newdt,
-        //     borderWidth: 2,
-        //     borderColor: 'maroon',
-        //     lineTension: 0,
-        //       fill: false, 
-        //  },
         ]
       }
 
@@ -143,6 +121,11 @@ const option = {
             // height={150}
             />
             <Cases cases={cases}/>
+
+            <ol>
+              <li>Total Cases: {sumCases}</li>
+              <li>Total Deaths: {sumDeaths}</li>
+            </ol>
 
         </div>
     )

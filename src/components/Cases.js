@@ -60,9 +60,7 @@ ChartJS.register(
 
       const times = cases.map(item => (item.time).slice(11)).reverse()
       const onlyTime = times.map(item => item.slice(0,5))      
-      const news = cases.map(item => (item.cases.new)).reverse()
       const active = cases.map(item => (item.cases.active)).reverse()
-      const critical = cases.map(item => (item.cases.critical)).reverse()
       const recovered = cases.map(item => (item.cases.recovered)).reverse()
 
       const data = {

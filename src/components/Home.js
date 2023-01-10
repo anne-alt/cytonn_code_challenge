@@ -10,13 +10,14 @@ function Home() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+            'X-RapidAPI-Key': baddc226acmshf0a25cef37c726bp16aa86jsnd78faf82c85a,
+            // process.env.REACT_APP_API_KEY,
             'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
         }
     };
 
     useEffect( () => {
-    
+
     fetch('https://covid-193.p.rapidapi.com/statistics/', options)
         .then(response => response.json())
         .then(data => setData(data.response))

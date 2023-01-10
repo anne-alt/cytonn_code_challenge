@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement} from "chart.js"
 import {Line} from "react-chartjs-2"
+import Cases from "./Cases";
 
 ChartJS.register(
     LineElement,
@@ -32,7 +33,8 @@ function History() {
         .catch(err => console.error(err));
 }, [])
 
-        const times = cases.map(item => (item.time)).reverse()
+        const times = cases.map(item => (item.time).slice(11)).reverse()
+        const onlyTime = times.map(item => item.slice(0,5))
         const news = cases.map(item => (item.cases.new)).reverse()
         const active = cases.map(item => (item.cases.active)).reverse()
         const critical = cases.map(item => (item.cases.critical)).reverse()
@@ -43,41 +45,41 @@ function History() {
 
 
     const data = {
-        labels: times,
+        labels: onlyTime,
         datasets: [
             {
-              label: 'New',
+              label: 'New Cases',
               data: news,
               borderWidth: 2,
               borderColor: '#30011E', 
               lineTension: 0,
               fill: false,
            },
-           {
-            label: 'Active',
-            data: active,
-            borderWidth: 2,
-            borderColor: '#B86026',
-            lineTension: 0,
-              fill: false,
+        //    {
+        //     label: 'Active Cases',
+        //     data: active,
+        //     borderWidth: 2,
+        //     borderColor: '#B86026',
+        //     lineTension: 0,
+        //       fill: false,
 
-         },
+        //  },
          {
-            label: 'Critical',
+            label: 'Critical Cases',
             data: critical,
             borderWidth: 2,
             borderColor: '#FCB07E',
             lineTension: 0,
               fill: false,
          },
-         {
-            label: 'Recovered',
-            data: recovered,
-            borderWidth: 2,
-            borderColor: '#A44200',
-            lineTension: 0,
-              fill: false,
-         },
+        //  {
+        //     label: 'Recovered Cases',
+        //     data: recovered,
+        //     borderWidth: 2,
+        //     borderColor: '#A44200',
+        //     lineTension: 0,
+        //       fill: false,
+        //  },
          {
             label: 'New Deaths',
             data: newd,
@@ -86,21 +88,21 @@ function History() {
             lineTension: 0,
               fill: false,
          },
-         {
-            label: 'Total Deaths',
-            data: newdt,
-            borderWidth: 2,
-            borderColor: 'maroon',
-            lineTension: 0,
-              fill: false, 
-         },
+        //  {
+        //     label: 'Total Deaths',
+        //     data: newdt,
+        //     borderWidth: 2,
+        //     borderColor: 'maroon',
+        //     lineTension: 0,
+        //       fill: false, 
+        //  },
         ]
       }
 
 const option = {
     title: {
         display: true,
-        text: ' '
+        text: ''
     },
 
     responsive: true,
@@ -112,7 +114,7 @@ const option = {
     plugins: {
       title: {
         display: true,
-        text: 'Chart.js Line Chart - Multi Axis'
+        text: 'Covid History Data'
       }
     }, 
         scales: {
@@ -130,7 +132,7 @@ const option = {
                 boxWidth: 80,
                 fontColor: 'black'
               }
-        }
+        },
       }
 
     return (
@@ -138,14 +140,9 @@ const option = {
             < Line
             data = {data}
             options = {option}
-            height={150}
+            // height={150}
             />
-            <button style={{backgroundColor:'#30011E'}}>New</button>
-            <button style={{backgroundColor:'#B86026'}}>Active</button>
-            <button style={{backgroundColor:'#FCB07E'}}>Critical</button>
-            <button style={{backgroundColor:'#A44200'}}>Recovered</button>
-            <button style={{backgroundColor:'red'}}>New Deaths</button>
-            <button style={{backgroundColor:'maroon'}}>Total Deaths</button>
+            <Cases cases={cases}/>
 
         </div>
     )

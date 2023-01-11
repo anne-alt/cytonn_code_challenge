@@ -119,6 +119,7 @@ const option = {
             < Line
             data = {data}
             options = {option}
+            // height={'150px'}
             />
             <Cases cases={cases}/>
 

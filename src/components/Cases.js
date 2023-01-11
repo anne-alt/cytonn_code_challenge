@@ -4,7 +4,10 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  LineElement
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -12,7 +15,10 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  LineElement
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
   );
 
   function Cases({cases}) {
